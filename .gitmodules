@@ -1,0 +1,6 @@
+[submodule "assignment-template"]
+	path = assignment-template
+	url = git@github.com:matt-mccarthy/assignment-template.git
+[submodule "presentation-template"]
+	path = presentation-template
+	url = git@github.com:matt-mccarthy/presentation-template.git
