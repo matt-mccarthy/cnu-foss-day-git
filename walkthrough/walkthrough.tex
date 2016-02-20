@@ -44,6 +44,25 @@ This logs our changes and gives us a point to which we can revert.
 If we run \verb|git status| once more, it will report that there is nothing to commit and that the working directory is clean.
 The \verb|git add .| and \verb|git commit -m "message here"| commands define the workflow on a single machine, that is these commands track and log each change you make to your project.
 
+Next we'll make some changes to the project and then reset them.
+For now, run the following command.
+\begin{center}
+	\verb|echo "Subversion is the best version control software" > file.txt|
+\end{center}
+Then track the change using \verb|git add .| but don't commit the change just yet.
+Run \verb|git status| and ensure that the change is tracked.
+You see, the statement we piped into \verb|file.txt| is a lie and so we need to undo the change even though we just tracked it.
+To do so, we run \verb|git reset --hard|.
+Now run \verb|git status| to make sure the change is gone.
+More generally, we can run \verb|git reset --hard commit-id| to reset to any given commit.
+Since the old statement is gone, we will go ahead and pipe the correct statement into \verb|file.txt|.
+\begin{center}
+	\verb|echo "git is the best version control software" > file.txt|
+\end{center}
+We will now track and commit our changes in one command by running \verb|git commit -am "Did a thing"|.
+This command adds all changes in \textit{tracked} files and then commits them in one fell swoop.
+Furthermore, it does not add any untracked files, so any new files would be skipped by this command.
+
 \section{Git Demonstration}
 
 \section{Advanced Git}
