@@ -10,7 +10,39 @@
 
 \section{Version Control}
 
+% TODO: Get the information to put here.
+
 \section{Git 101}
+
+To start, we need to configure \verb|git|.
+To do so, we run the following two commands.
+\begin{center}
+	\begin{tabular}{l}
+		\verb|git config --global user.name "Your Name Here"|\\
+		\verb|git config --global user.email "your.email@host.domain"|
+	\end{tabular}
+\end{center}
+These commands tell our \verb|git| installation who we are and how to contact us so that other users know who is responsible for each commit.
+
+Our first task is to make a repository on our local machine.
+Next we want a directory in which we will store our \verb|git| repositories.
+For the sake of simplicity, let's just make a new folder in the home directory called \verb|git| (e.g. run \verb|mkdir ~/git|).
+We now need to \verb|cd| into our new directory, so we run \verb|cd ~/git|.
+Now run \verb|mkdir my-git-repo| and then \verb|cd my-git-repo|.
+We will now turn this folder into a \verb|git| repository by running \verb|git init|.
+And now we have a \verb|git| repository.
+
+We're now going to start making changes, tracking them, and committing them.
+Let's begin by creating a file and telling \verb|git| to track it.
+Run \verb|touch file.txt|, this will create a file called \verb|file.txt|.
+If we run \verb|git status|, it will list \verb|file.txt| as an untracked file.
+We now need to run \verb|git add .|.
+The previous command tracks all untracked files and tracks any changes you made.
+If we run \verb|git status| again, we will see that \verb|new file: file.txt| is in the list of changes to be committed.
+Lastly, to commit our changes, we run \verb|git commit -m "Added file.txt"|.
+This logs our changes and gives us a point to which we can revert.
+If we run \verb|git status| once more, it will report that there is nothing to commit and that the working directory is clean.
+The \verb|git add .| and \verb|git commit -m "message here"| commands define the workflow on a single machine, that is these commands track and log each change you make to your project.
 
 \section{Git Demonstration}
 
