@@ -87,10 +87,40 @@ When we use a \verb|git| server, the workflow will change a little bit.
 Instead of just running \verb|git add| and \verb|git commit|, we now have to run \verb|git push| in order to push our commits to the server.
 Furthermore, instead of running \verb|git init|, we can just create an empty repository on the server and then use \verb|git clone| to set it up on our machine.
 
-Lastly, GitHub has a Git cheat sheet at \url{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf} if you wish to have a quick reference document.
+Lastly, GitHub has a Git cheat sheet at
+\begin{center}
+\url{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf}
+\end{center}
+if you wish to have a quick reference document.
 
 \section{Git Demonstration}
 
+\subsection{Forking the Demo}
+
+In your web browser, navigate to \url{https://github.com/matt-mccarthy/cnu-foss-day-demo}.
+Once the page has loaded look for a button called `Fork' and click it in order to fork the repository.
+After that you should be on the page for your forked repository.
+From here, clone your repository and then in your terminal use \verb|cd| to enter the repository's directory.
+Once you have \verb|cd|'d into the repository, run the following command.
+\begin{center}
+\verb|git remote add upstream https://github.com/matt-mccarthy/cnu-foss-day-demo.git|
+\end{center}
+This will allow you to pull changes from the original repository into your own.
+
+\subsection{Claiming and Fixing an Issue}
+
+\subsection{Pull Changes from Upstream}
+
+\subsection{Pull Requests}
+
+% TODO: Claim issue, fix issue, add, commit, pull, merge, push, pull req.
+
 \section{Advanced Git}
+
+\subsection{Branches}
+
+\subsection{Tags}
+
+\subsection{.gitignore}
 
 \end{document}
