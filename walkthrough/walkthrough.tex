@@ -24,6 +24,8 @@ To do so, we run the following two commands.
 \end{center}
 These commands tell our \verb|git| installation who we are and how to contact us so that other users know who is responsible for each commit.
 
+\subsection{Local Git}
+
 Our first task is to make a repository on our local machine.
 Next we want a directory in which we will store our \verb|git| repositories.
 For the sake of simplicity, let's just make a new folder in the home directory called \verb|git| (e.g. run \verb|mkdir ~/git|).
@@ -62,6 +64,28 @@ Since the old statement is gone, we will go ahead and pipe the correct statement
 We will now track and commit our changes in one command by running \verb|git commit -am "Did a thing"|.
 This command adds all changes in \textit{tracked} files and then commits them in one fell swoop.
 Furthermore, it does not add any untracked files, so any new files would be skipped by this command.
+
+\subsection{Using GitHub}
+
+Now that we know how to deal with changes in a project locally, we're going to bring GitHub into the picture.
+To begin, if you do not have a GitHub account create one at \url{github.com}.
+Continuing with our toy project, create a repository on your GitHub account by clicking the `New repository' button.
+For the name, call it \verb|my-git-repo| and then create the repository.
+This should bring you to webpage of your new repository.
+From here copy the URL next to the `Download ZIP' button.
+Our next step is to add the GitHub repository as a remote server.
+To do so run \verb|git remote add origin copied-url|.
+Now that we have added the server, run \verb|git push origin master| to push your changes to GitHub.
+
+Now that your project is on GitHub run \verb|cd ..| to go into the parent directory and then delete your project using \verb|rm -rf my-git-repo|.
+We will now \textit{clone} the repository from the GitHub URL.
+Now run \verb|git clone copied-url|.
+This will create a directory for your project and then copy all of the project's files into that directory.
+To check run \verb|cd my-git-repo| and then \verb|cat file.txt| and it should output the contents of the file.
+
+When we use a \verb|git| server, the workflow will change a little bit.
+Instead of just running \verb|git add| and \verb|git commit|, we now have to run \verb|git push| in order to push our commits to the server.
+Furthermore, instead of running \verb|git init|, we can just create an empty repository on the server and then use \verb|git clone| to set it up on our machine.
 
 \section{Git Demonstration}
 
