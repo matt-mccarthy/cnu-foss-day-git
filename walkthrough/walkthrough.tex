@@ -144,6 +144,34 @@ In this section, we will cover branches, tags, and the \verb|.gitignore| file.
 
 \subsection{Branches}
 
+So far in this demo, we have done all of our work in a branch called master, however this is typically not the best way to do things.
+The more usual workflow involves creating either a branch for a new feature or release.
+These branches can operate independent of all other branches, which makes it easier to tackle an issue or add a new feature since the base code does not change until you decide to bring those changes in.
+
+To start, lets see how branches work.
+In the demo repository, run \verb|git checkout testing|.
+This command switches the branch from master to the testing branch.
+For this excercise, implement the \verb|toString()| function in \verb|Car.java|.
+
+After that's done, we need to merge the changes you did in master into testing.
+To do so, we run \verb|git merge master|.
+This command pulls all changes you made to master into the testing branch, a necessary step to enable what we call a \textit{fast-forward} merge.
+Once it merges, run \verb|git status| to make sure you do not need an extra commit to finish the merge.
+Now run \verb|git push origin testing| to push the latest commits in the testing branch to GitHub.
+Now that we have brought testing up to speed, switch back to the master branch using \verb|git checkout master|.
+Now we want to merge our testing changes into master, so we run \verb|git merge testing|.
+Once we have everything merged into master, run \verb|git push origin master|.
+As you can probably guess, the \verb|git push| command needs a remote repository and branch to which it can push unless you tell it one to use by default.
+
+Next, run \verb|git checkout -b person-toString|.
+This command creates a new branch called
+\linebreak\verb|person-toString| and immediately switches to it.
+For this part create a method \verb|public String toString()| for the person class that returns a string in the format \verb|lastname, firstname|.
+Once you have it implemented commit and then push the \verb|person-toString| branch to GitHub by running,
+\linebreak\verb|git push origin person-toString|.
+Next switch to the master branch by running \verb|git checkout master| and then merge the \verb|person-toString| branch into master by running \verb|git merge person-toString|.
+Now push your master branch to GitHub by running \verb|git push origin master|.
+
 \subsection{Tags}
 
 \subsection{\texttt{.gitignore}}
