@@ -174,6 +174,15 @@ Now push your master branch to GitHub by running \verb|git push origin master|.
 
 \subsection{Tags}
 
+Git also a tag feature that is typically used to denote releases.
+For example, if you were to run \verb|git checkout v0.1beta2|, your local repository would look like how it did when you first cloned it.
+This is because I set that tag to be the initial version of the repository.
+What you need to do now is run \verb|git tag release1| in order to easily switch to the current state of the repository.
+Once you have made your tag, go ahead and run \verb|git checkout v0.1beta2|.
+This brings you back to the way your repository originally was, to get back to release1, tun \verb|git checkout release1|.
+Once you are back at release1, run \verb|git push origin release1|.
+This command pushes the tag to the Git server, since git push does not push tags unless you tell it to do so.
+
 \subsection{\texttt{.gitignore}}
 
 In the demo repository, you may have seen an odd file entitled \verb|.gitignore|.
