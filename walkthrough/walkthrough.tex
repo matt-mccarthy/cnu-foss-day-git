@@ -252,7 +252,7 @@ Once you have it implemented commit and then run
 \end{terminal}
 which will push the \verb|person-toString| branch to GitHub.
 Next switch to the master branch by running
-\beign{terminal}
+\begin{terminal}
 	\verb|git checkout master|
 \end{terminal}
 and then run
@@ -265,13 +265,33 @@ Now push your master branch to GitHub by running \verb|git push origin master|.
 \subsection{Tags}
 
 Git also a tag feature that is typically used to denote releases.
-For example, if you were to run \verb|git checkout v0.1beta2|, your local repository would look like how it did when you first cloned it.
-This is because I set that tag to be the initial version of the repository.
-What you need to do now is run \verb|git tag release1| in order to easily switch to the current state of the repository.
-Once you have made your tag, go ahead and run \verb|git checkout v0.1beta2|.
-This brings you back to the way your repository originally was, to get back to release1, tun \verb|git checkout release1|.
-Once you are back at release1, run \verb|git push origin release1|.
-This command pushes the tag to the Git server, since git push does not push tags unless you tell it to do so.
+For example, if you were to run
+\begin{terminal}
+	\verb|git checkout v0.1beta2|
+\end{terminal}
+your local repository would look like how it did when you first cloned it.
+This is because that tag marks the commit that represents the initial version of the repository.
+What you need to do now is run
+\begin{terminal}
+	\verb|git tag release1|
+\end{terminal}
+in order to easily switch to the current state of the repository.
+Once you have made your tag, go ahead and run
+\begin{terminal}
+	\verb|git checkout v0.1beta2|
+\end{terminal}
+which brings you back to the way your repository originally was.
+Run
+\begin{terminal}
+	\verb|git checkout release1|
+\end{terminal}
+in order to get back to release1.
+
+Once you are back at release1, run
+\begin{terminal}
+	\verb|git push origin release1|
+\end{terminal}
+which pushes the tag to the Git server, since git push does not push tags unless you tell it to do so.
 
 \subsection{\texttt{.gitignore}}
 
@@ -279,8 +299,11 @@ In the demo repository, you may have seen an odd file entitled \verb|.gitignore|
 This file tells Git which files to ignore.
 You can specify that certain file types should be ignored or you can actually spell out the files.
 But this raises the question, what if you want to add an ignored file?
-In this case we use the command \verb|git add -f ignored_file_name_here|.
-This will force Git to track the ignored file.
+In this case we use the command
+\begin{terminal}
+	\verb|git add -f ignored_file_name_here|
+\end{terminal}
+which forces Git to track the ignored file.
 If you want to generate a \verb|.gitignore| for your repository, an easy way to do so is to use \url{www.gitignore.io}.
 This website takes the languages you are using and autogenerates a \verb|.gitignore| that ignores all of the typical temporary files that your languages produce.
 For example, the \verb|.gitignore| for Java ignores \verb|.class| and \verb|.jar| files as well as JVM crash logs.
