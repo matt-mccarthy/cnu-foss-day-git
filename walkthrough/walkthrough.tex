@@ -5,6 +5,7 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
 \definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
 \definecolor{qqqqff}{rgb}{0.,0.,1.}
 
@@ -174,7 +175,31 @@ Lastly, GitHub has a Git cheat sheet at
 \end{center}
 if you wish to have a quick reference document.
 
-% TODO: Add workflow diagram for server use
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+	\clip(0.5,0.5) rectangle (5.,3.5);
+	\draw(3.,2.) circle (1.cm);
+	\draw [->] (1.,2.) -- (2.,2.);
+	\draw [->] (2.7062144040845406,2.955871342614998) -- (3.,3.);
+	\draw [->] (3.9502651794615264,2.3114419507756674) -- (4.,2.);
+	\draw [->] (2.039158952729161,1.7228998703005047) -- (2.,2.);
+	\draw [->] (3.2799698178262338,1.0399911973808025) -- (3.,1.);
+	\begin{scriptsize}
+	\draw [fill=qqqqff] (1.,2.) circle (2.5pt);
+	\draw[color=qqqqff] (1.0795041322314065,2.3294214876033084) node {\verb|clone|};
+	\draw [fill=xdxdff] (2.,2.) circle (2.5pt);
+	\draw[color=xdxdff] (2.85,2.0) node {CHANGES};
+	\draw [fill=xdxdff] (4.,2.) circle (2.5pt);
+	\draw[color=xdxdff] (4.55,2) node {\verb|commit|};
+	\draw [fill=xdxdff] (3.,3.) circle (2.5pt);
+	\draw[color=xdxdff] (3,3.304628099173557) node {\verb|add|};
+	\draw [fill=uuuuuu] (3.,1.) circle (1.5pt);
+	\draw[color=uuuuuu] (3,0.8) node {\verb|push|};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\caption{Workflow for Git with a Git server}
+\end{figure}
 
 \section{Git Demonstration}
 
