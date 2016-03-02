@@ -14,56 +14,85 @@
 
 \section{Git 101}
 
-To start, we need to configure \verb|git|.
+Before starting, make sure your terminal is open.
+
+To start, we need to configure Git.
 To do so, we run the following two commands.
-\begin{center}
-	\begin{tabular}{l}
-		\verb|git config --global user.name "Your Name Here"|\\
-		\verb|git config --global user.email "your.email@host.domain"|
-	\end{tabular}
-\end{center}
-These commands tell our \verb|git| installation who we are and how to contact us so that other users know who is responsible for each commit.
+\begin{terminal}
+	\verb|git config --global user.name "Your Name Here"|\\
+	\verb|git config --global user.email "your.email@host.domain"|
+\end{terminal}
+These commands tell our Git installation who we are and how to contact us so that other users know who is responsible for each commit.
 
 \subsection{Local Git}
 
 Our first task is to make a repository on our local machine.
-Next we want a directory in which we will store our \verb|git| repositories.
-For the sake of simplicity, let's just make a new folder in the home directory called \verb|git| (e.g. run \verb|mkdir ~/git|).
-We now need to \verb|cd| into our new directory, so we run \verb|cd ~/git|.
-Now run \verb|mkdir my-git-repo| and then \verb|cd my-git-repo|.
-We will now turn this folder into a \verb|git| repository by running \verb|git init|.
-And now we have a \verb|git| repository.
+Next we want a directory in which we will store our Git repositories.
+For the sake of simplicity, let's just make a new folder in the home directory called \verb|git| and then enter that directory, that is run the following.
+\begin{terminal}
+	\verb|mkdir ~/git|\\
+	\verb|cd ~/git|
+\end{terminal}
+Next we want to actually make the repository.
+To do so, we want to make a folder for the repository (\verb|mkdir my-git-repo|) and then enter that folder (\verb|cd my-git-repo|).
+We will now turn this folder into a Git repository by running
+\begin{terminal}
+	\verb|git init|
+\end{terminal}
+which creates the directories and files necessary to make a folder a Git repository.
 
 We're now going to start making changes, tracking them, and committing them.
-Let's begin by creating a file and telling \verb|git| to track it.
-Run \verb|touch file.txt|, this will create a file called \verb|file.txt|.
-If we run \verb|git status|, it will list \verb|file.txt| as an untracked file.
-We now need to run \verb|git add .|.
-The previous command tracks all untracked files and tracks any changes you made.
+Let's begin by creating a file and telling Git to track it.
+Run
+\begin{terminal}
+	\verb|touch file.txt|
+\end{terminal}
+this will create a file called \verb|file.txt|.
+If we run
+\begin{terminal}
+	\verb|git status|
+\end{terminal}
+it will list \verb|file.txt| as an untracked file.
+We now need to run
+\begin{terminal}
+	\verb|git add .|
+\end{terminal}
+which tracks all untracked files and tracks any changes you made.
 If we run \verb|git status| again, we will see that \verb|new file: file.txt| is in the list of changes to be committed.
-Lastly, to commit our changes, we run \verb|git commit -m "Added file.txt"|.
-This logs our changes and gives us a point to which we can revert.
+Lastly, to commit our changes, we run
+\begin{terminal}
+	\verb|git commit -m "Added file.txt"|
+\end{terminal}
+which logs our changes and gives us a point to which we can revert.
 If we run \verb|git status| once more, it will report that there is nothing to commit and that the working directory is clean.
 The \verb|git add .| and \verb|git commit -m "message here"| commands define the workflow on a single machine, that is these commands track and log each change you make to your project.
 
 Next we'll make some changes to the project and then reset them.
 For now, run the following command.
-\begin{center}
+\begin{terminal}
 	\verb|echo "Subversion is the best version control software" > file.txt|
-\end{center}
+\end{terminal}
 Then track the change using \verb|git add .| but don't commit the change just yet.
 Run \verb|git status| and ensure that the change is tracked.
 You see, the statement we piped into \verb|file.txt| is a lie and so we need to undo the change even though we just tracked it.
-To do so, we run \verb|git reset --hard|.
+To do so, we run
+\begin{terminal}
+	\verb|git reset --hard|
+\end{terminal}
 Now run \verb|git status| to make sure the change is gone.
 More generally, we can run \verb|git reset --hard commit-id| to reset to any given commit.
 Since the old statement is gone, we will go ahead and pipe the correct statement into \verb|file.txt|.
-\begin{center}
+\begin{terminal}
 	\verb|echo "git is the best version control software" > file.txt|
-\end{center}
-We will now track and commit our changes in one command by running \verb|git commit -am "Did a thing"|.
-This command adds all changes in \textit{tracked} files and then commits them in one fell swoop.
+\end{terminal}
+We will now track and commit our changes in one command by running
+\begin{terminal}
+	\verb|git commit -am "Did a thing"|
+\end{terminal}
+which adds all changes in \textit{tracked} files and then commits them in one fell swoop.
 Furthermore, it does not add any untracked files, so any new files would be skipped by this command.
+
+% TODO: Add workflow diagram for local use
 
 \subsection{Using GitHub}
 
@@ -74,14 +103,35 @@ For the name, call it \verb|my-git-repo| and then create the repository.
 This should bring you to webpage of your new repository.
 From here copy the URL next to the `Download ZIP' button.
 Our next step is to add the GitHub repository as a remote server.
-To do so run \verb|git remote add origin copied-url|.
-Now that we have added the server, run \verb|git push origin master| to push your changes to GitHub.
+To do so run
+\begin{terminal}
+	\verb|git remote add origin copied-url|
+\end{terminal}
+which adds a place from which Git can fetch code for this repository.
+Now that we have added the server, run
+\begin{terminal}
+	\verb|git push origin master|
+\end{terminal}
+to push your changes to GitHub.
+The \verb|git push| command requires both a place to which it can push as well as a \textit{branch} to which we can push.
+The default branch of any Git repository is called the master branch.
+If you want to learn more about branching, check out the advanced Git section of this paper after you finish the demo.
 
-Now that your project is on GitHub run \verb|cd ..| to go into the parent directory and then delete your project using \verb|rm -rf my-git-repo|.
+Now that your project is on GitHub run \verb|cd ..| to go into the parent directory and then delete your project using
+\begin{terminal}
+	\verb|rm -rf my-git-repo|
+\end{terminal}
 We will now \textit{clone} the repository from the GitHub URL.
-Now run \verb|git clone copied-url|.
-This will create a directory for your project and then copy all of the project's files into that directory.
-To check run \verb|cd my-git-repo| and then \verb|cat file.txt| and it should output the contents of the file.
+Now run
+\begin{terminal}
+	\verb|git clone copied-url|
+\end{terminal}
+which creates a directory for your project and then copies all of the project's files into that directory.
+To check run \verb|cd my-git-repo| and then
+\begin{terminal}
+	\verb|cat file.txt|
+\end{terminal}
+and it should output the contents of the file.
 
 When we use a \verb|git| server, the workflow will change a little bit.
 Instead of just running \verb|git add| and \verb|git commit|, we now have to run \verb|git push| in order to push our commits to the server.
@@ -92,6 +142,8 @@ Lastly, GitHub has a Git cheat sheet at
 \url{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf}
 \end{center}
 if you wish to have a quick reference document.
+
+% TODO: Add workflow diagram for server use
 
 \section{Git Demonstration}
 

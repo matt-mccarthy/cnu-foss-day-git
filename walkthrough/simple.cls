@@ -45,6 +45,16 @@
 \newcommand{\definitionautorefname}{Definition}
 \newtheorem*{definition*}{Definition}
 
+\newenvironment{terminal}{
+\newline\noindent\textbf{Terminal:}
+\begin{center}
+\begin{tabular}{l}
+}
+{
+\end{tabular}
+\end{center}
+}
+
 \def\AA{\mathbb{A}}	% Algebraics
 \def\CC{\mathbb{C}}	% Complex
 \def\FF{\mathbb{F}}	% Arbitrary field
