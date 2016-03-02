@@ -1,5 +1,13 @@
 \documentclass[notitlepage]{simple}
 
+\usepackage{float}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
 \author{Matt McCarthy}
 \title{How To Git}
 \date{CNU FOSS Day\\ 12 March, 2016}
@@ -93,6 +101,29 @@ which adds all changes in \textit{tracked} files and then commits them in one fe
 Furthermore, it does not add any untracked files, so any new files would be skipped by this command.
 
 % TODO: Add workflow diagram for local use
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+	\clip(0.5,0.5) rectangle (5.,3.5);
+	\draw(3.,2.) circle (1.cm);
+	\draw [->] (1.,2.) -- (2.,2.);
+	\draw [->] (3.3186394600941354,2.9478759910826513) -- (3.6974712186505396,2.716612795834774);
+	\draw [->] (3.872945513982138,1.5121822782857706) -- (3.696276389206922,1.2822262265637097);
+	\draw [->] (2.039158952729161,1.7228998703005047) -- (2.,2.);
+	\begin{scriptsize}
+	\draw [fill=qqqqff] (1.,2.) circle (2.5pt);
+	\draw[color=qqqqff] (1.0299173553719023,2.25) node {\verb|init|};
+	\draw [fill=xdxdff] (2.,2.) circle (2.5pt);
+	\draw[color=xdxdff] (2.85,2.) node {CHANGES};
+	\draw [fill=xdxdff] (3.696276389206922,1.2822262265637097) circle (2.5pt);
+	\draw[color=xdxdff] (4.25,1.221983471074382) node {\verb|commit|};
+	\draw [fill=xdxdff] (3.6974712186505396,2.716612795834774) circle (2.5pt);
+	\draw[color=xdxdff] (3.905950413223143,3.007107438016532) node {\verb|add|};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\caption{Workflow for Git on a single machine}
+\end{figure}
 
 \subsection{Using GitHub}
 
