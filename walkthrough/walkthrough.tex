@@ -156,9 +156,9 @@ Once the page has loaded look for a button called `Fork' and click it in order t
 After that you should be on the page for your forked repository.
 From here, clone your repository and then in your terminal use \verb|cd| to enter the repository's directory.
 Once you have \verb|cd|'d into the repository, run the following command.
-\begin{center}
+\begin{terminal}
 \verb|git remote add upstream https://github.com/matt-mccarthy/cnu-foss-day-demo.git|
-\end{center}
+\end{terminal}
 This will allow you to pull changes from the original repository into your own.
 
 \subsection{Claiming and Fixing an Issue}
@@ -171,8 +171,11 @@ Once you fix your issue, you can move on to the next section.
 \subsection{Pull Changes from Upstream}
 
 Now that you have fixed your issue, go ahead and push your changes to your repository.
-After you have done that, run the command \verb|git pull upstream master|.
-This command will pull any changes from the original repository (called \verb|upstream|) into your local repository and then perform what we call a \textit{merge}
+After you have done that, run the command
+\begin{terminal}
+	\verb|git pull upstream master|
+\end{terminal}
+pulls any changes from the original repository (called \verb|upstream|) into your local repository and then \textit{merges} them into your code
 (if you want to learn more about merging and branching check out the Advanced Git section of this paper).
 Sometimes, the merge operation will require manual intervention in order to succeed, but this should not be the case for this demo.
 Once you successfully merge, run \verb|git status| to ensure you do not need an extra commit, and then push your changes to your repository.
@@ -201,27 +204,62 @@ The more usual workflow involves creating either a branch for a new feature or r
 These branches can operate independent of all other branches, which makes it easier to tackle an issue or add a new feature since the base code does not change until you decide to bring those changes in.
 
 To start, lets see how branches work.
-In the demo repository, run \verb|git checkout testing|.
-This command switches the branch from master to the testing branch.
+In the demo repository, run
+\begin{terminal}
+	\verb|git checkout testing|
+\end{terminal}
+which switches the branch from master to the testing branch.
 For this excercise, implement the \verb|toString()| function in \verb|Car.java|.
 
 After that's done, we need to merge the changes you did in master into testing.
-To do so, we run \verb|git merge master|.
-This command pulls all changes you made to master into the testing branch, a necessary step to enable what we call a \textit{fast-forward} merge.
-Once it merges, run \verb|git status| to make sure you do not need an extra commit to finish the merge.
-Now run \verb|git push origin testing| to push the latest commits in the testing branch to GitHub.
-Now that we have brought testing up to speed, switch back to the master branch using \verb|git checkout master|.
-Now we want to merge our testing changes into master, so we run \verb|git merge testing|.
-Once we have everything merged into master, run \verb|git push origin master|.
-As you can probably guess, the \verb|git push| command needs a remote repository and branch to which it can push unless you tell it one to use by default.
+To do so, we run
+\begin{terminal}
+	\verb|git merge master|
+\end{terminal}
+which merges all changes you made on master into the testing branch, a necessary step to enable what we call a \textit{fast-forward} merge when we go back into master.
 
-Next, run \verb|git checkout -b person-toString|.
-This command creates a new branch called
-\linebreak\verb|person-toString| and immediately switches to it.
-For this part create a method \verb|public String toString()| for the person class that returns a string in the format \verb|lastname, firstname|.
-Once you have it implemented commit and then push the \verb|person-toString| branch to GitHub by running,
-\linebreak\verb|git push origin person-toString|.
-Next switch to the master branch by running \verb|git checkout master| and then merge the \verb|person-toString| branch into master by running \verb|git merge person-toString|.
+Once it merges, run \verb|git status| to make sure you do not need an extra commit to finish the merge.
+Now run
+\begin{terminal}
+	\verb|git push origin testing|
+\end{terminal}
+to push the latest commits in the testing branch to GitHub.
+Now that we have brought testing up to speed, use
+\begin{terminal}
+	\verb|git checkout master|
+\end{terminal}
+to switch back to the master branch.
+Now we run
+\begin{terminal}
+	\verb|git merge testing|
+\end{terminal}
+in order to merge our testing changes into master.
+Once we have everything merged into master, run
+\begin{terminal}
+	\verb|git push origin master|
+\end{terminal}
+in order to push your changes to master.
+
+Next, run
+\begin{terminal}
+	\verb|git checkout -b person-toString|
+\end{terminal}
+which creates a new branch called \verb|person-toString| and immediately switches to it.
+For this part create a method \verb|public String toString()| for the person class that returns a string in the format \linebreak\verb|lastname, firstname|.
+Once you have it implemented commit and then run
+\begin{terminal}
+	\verb|git push origin person-toString|
+\end{terminal}
+which will push the \verb|person-toString| branch to GitHub.
+Next switch to the master branch by running
+\beign{terminal}
+	\verb|git checkout master|
+\end{terminal}
+and then run
+\begin{terminal}
+	\verb|git merge person-toString|
+\end{terminal}
+which will merge the \verb|person-toString| branch into master.
 Now push your master branch to GitHub by running \verb|git push origin master|.
 
 \subsection{Tags}
