@@ -101,8 +101,6 @@ We will now track and commit our changes in one command by running
 which adds all changes in \textit{tracked} files and then commits them in one fell swoop.
 Furthermore, it does not add any untracked files, so any new files would be skipped by this command.
 
-% TODO: Add workflow diagram for local use
-
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
@@ -131,9 +129,19 @@ Furthermore, it does not add any untracked files, so any new files would be skip
 Now that we know how to deal with changes in a project locally, we're going to bring GitHub into the picture.
 To begin, if you do not have a GitHub account create one at \url{github.com}.
 Continuing with our toy project, create a repository on your GitHub account by clicking the `New repository' button.
+\begin{figure}[H]
+	\centering
+	% TODO: Add picture
+	\caption{The `New repository' button}
+\end{figure}
 For the name, call it \verb|my-git-repo| and then create the repository.
 This should bring you to webpage of your new repository.
 From here copy the URL next to the `Download ZIP' button.
+\begin{figure}[H]
+	\centering
+	% TODO: Add picture
+	\caption{Click here}
+\end{figure}
 Our next step is to add the GitHub repository as a remote server.
 To do so run
 \begin{terminal}
@@ -209,11 +217,16 @@ For our demonstration, we will make a few classes that could be used for auto in
 
 In your web browser, navigate to \url{https://github.com/matt-mccarthy/cnu-foss-day-demo}.
 Once the page has loaded look for a button called `Fork' and click it in order to fork the repository.
+\begin{figure}[H]
+	\centering
+	% TODO: Add picture
+	\caption{The Fork button}
+\end{figure}
 After that you should be on the page for your forked repository.
 From here, clone your repository and then in your terminal use \verb|cd| to enter the repository's directory.
 Once you have \verb|cd|'d into the repository, run the following command.
 \begin{terminal}
-\verb|git remote add upstream https://github.com/matt-mccarthy/cnu-foss-day-demo.git|
+	\verb|git remote add upstream https://github.com/matt-mccarthy/cnu-foss-day-demo.git|
 \end{terminal}
 This will allow you to pull changes from the original repository into your own.
 
@@ -241,15 +254,23 @@ If you do need an extra commit, commit your changes and then push.
 
 Now that your fork is up to date, we will start talking about creating a pull request.
 Navigate to the GitHub page for your repository and click the ``New pull request'' button.
+\begin{figure}[H]
+	\centering
+	% TODO: Add picture
+	\caption{Pull request button}
+\end{figure}
 Quickly inspect the options.
+\begin{figure}[H]
+	\centering
+	% TODO: Add picture
+	\caption{Proper set up}
+\end{figure}
 The ``base fork'' field should be set to \verb|matt-mccarthy/cnu-foss-day-demo| with ``base'' \verb|master|.
 The ``base fork'' field tells GitHub where we want to merge our changes, and the ``base'' field specifies a branch to merge.
 Furthermore, if you look at the ``head fork'' field you should see your repository listed there and again with the ``compare'' field set to \verb|master|.
 For our purposes, GitHub did all of the work and so we can go ahead and click the ``Create pull request'' button.
 And that's the last step for you to do.
-All that is left is for me to approve or deny the request.
-
-% Add workflow diagram.
+All that is left is for your request to be approved or denied.
 
 \begin{figure}[H]
 	\centering
