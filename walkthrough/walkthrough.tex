@@ -131,15 +131,16 @@ To begin, if you do not have a GitHub account create one at \url{github.com}.
 Continuing with our toy project, create a repository on your GitHub account by clicking the `New repository' button.
 \begin{figure}[H]
 	\centering
-	% TODO: Add picture
+	\includegraphics[scale=0.5]{new-repo.png}
 	\caption{The `New repository' button}
 \end{figure}
 For the name, call it \verb|my-git-repo| and then create the repository.
 This should bring you to webpage of your new repository.
-From here copy the URL next to the `Download ZIP' button.
+The default options are fine for this project.
+From here copy the URL shown on your screen.
 \begin{figure}[H]
 	\centering
-	% TODO: Add picture
+	\includegraphics[scale=0.4]{copy-repo.png}
 	\caption{Click here}
 \end{figure}
 Our next step is to add the GitHub repository as a remote server.
@@ -219,7 +220,7 @@ In your web browser, navigate to \url{https://github.com/matt-mccarthy/cnu-foss-
 Once the page has loaded look for a button called `Fork' and click it in order to fork the repository.
 \begin{figure}[H]
 	\centering
-	% TODO: Add picture
+	\includegraphics[scale=0.5]{fork-repo.png}
 	\caption{The Fork button}
 \end{figure}
 After that you should be on the page for your forked repository.
@@ -230,11 +231,12 @@ Once you have \verb|cd|'d into the repository, run the following command.
 \end{terminal}
 This will allow you to pull changes from the original repository into your own.
 
-\subsection{Claiming and Fixing an Issue}
+\subsection{Fixing an Issue}
 
-% TODO: Claim issue.
+If you navigate to \url{https://github.com/matt-mccarthy/cnu-foss-day-demo/issues} you will see a plethora of issues with this project.
+You have been assigned an issue number to fix.
 
-Once you have your issue claimed, open the file that to which the issue applies and add the code necessary to fix the issue.
+Once you understand which issue you need to fix, open the file that to which the issue applies and add the code necessary to fix the issue.
 Once you fix your issue, you can move on to the next section.
 
 \subsection{Pull Changes from Upstream}
@@ -256,13 +258,13 @@ Now that your fork is up to date, we will start talking about creating a pull re
 Navigate to the GitHub page for your repository and click the ``New pull request'' button.
 \begin{figure}[H]
 	\centering
-	% TODO: Add picture
+	\includegraphics[scale=0.5]{new-pr.png}
 	\caption{Pull request button}
 \end{figure}
 Quickly inspect the options.
 \begin{figure}[H]
 	\centering
-	% TODO: Add picture
+	\includegraphics[scale=0.5]{pr-setup.png}
 	\caption{Proper set up}
 \end{figure}
 The ``base fork'' field should be set to \verb|matt-mccarthy/cnu-foss-day-demo| with ``base'' \verb|master|.
