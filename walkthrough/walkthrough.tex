@@ -19,7 +19,13 @@
 
 \section{Version Control}
 
-% TODO: Get the information to put here.
+Simply put, version control systems (or more succinctly VCSs) track and label changes, known as revisions, to files or documents.
+These properties provide a plethora of capabilities such as comparing and merging revisions as well as restoring previous revisions.
+In turn, this enables many people to edit the same files and combine or merge their changes together as well as synchronize their versions.
+
+In this tutorial we will use Git as our version control system.
+Git is a free and open source VCS that is used in many FOSS projects, most notably itself and the Linux kernel.
+If you do not have Git installed, you can install it from your Linux distribution's package manager or from \url{https://git-scm.com/downloads}.
 
 \section{Git 101}
 
@@ -230,6 +236,7 @@ Once you have \verb|cd|'d into the repository, run the following command.
 	\verb|git remote add upstream https://github.com/matt-mccarthy/cnu-foss-day-demo.git|
 \end{terminal}
 This will allow you to pull changes from the original repository into your own.
+At this point we say the original repository is \textit{upstream} and your fork of it is \textit{downstream}.
 
 \subsection{Fixing an Issue}
 
